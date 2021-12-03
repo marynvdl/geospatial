@@ -1,0 +1,10 @@
+bin/
+data/
+etc/
+lib/
+lib64
+pyvenv.cfg
+share/
+jupyterbooks/.ipynb_checkpoints/
+.idea/
+
