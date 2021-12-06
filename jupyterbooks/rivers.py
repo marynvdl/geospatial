@@ -21,7 +21,7 @@ import os
 
 river_results = gpd.GeoDataFrame()
 
-parks = gpd.read_file("../data/rivers/Polygon_layer.shp").to_crs(epsg=4269)
+parks = gpd.read_file("data/river/161pas.shp").to_crs(epsg=4269)
 
 for index, park in parks.iterrows():
     print(park.loc['name'])
@@ -46,7 +46,7 @@ for index, park in parks.iterrows():
     try:
         rwa_rivers
     except NameError:
-        rwa_rivers = gpd.read_file("../data/rivers/clipped_rivers.shp").to_crs(epsg=4269)
+        rwa_rivers = gpd.read_file("data/river/161clipped_rivers.shp").to_crs(epsg=4269)
         print('importing')
 
     # Buffer rivers
