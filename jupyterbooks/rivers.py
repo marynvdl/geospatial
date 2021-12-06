@@ -31,7 +31,7 @@ parks = gpd.read_file("data/river/161pas.shp").to_crs(epsg=4269)
 
 for index, park in parks.iterrows():
 
-    if park.loc['name'] in output_files:
+    if park.loc['name'] not in output_files:
 
         park_name = park.loc['name']
         print(park_name)
