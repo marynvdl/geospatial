@@ -30,10 +30,10 @@ river_results = gpd.GeoDataFrame()
 parks = gpd.read_file("data/river/161pas.shp").to_crs(epsg=4269)
 
 for index, park in parks.iterrows():
+    park_name = park.loc['name']
+    park_file_name = ''.join(e for e in park_name if e.isalnum())
 
-    if park.loc['name'] not in output_files:
-
-        park_name = park.loc['name']
+    if park.loc['name'] not in output_files or park_file_name not in output_files:
         print(park_name)
 
         # Buffer
@@ -315,7 +315,7 @@ for index, park in parks.iterrows():
 
             park_file_name = ''.join(e for e in park_name if e.isalnum())
             file_name = 'data/river/output/' + park_file_name + '.geojson'
-            
+
 
 
             relevant_rivers.to_file(file_name, driver='GeoJSON')
