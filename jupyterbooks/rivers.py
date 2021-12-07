@@ -313,7 +313,10 @@ for index, park in parks.iterrows():
             relevant_rivers = buffer_rivers.loc[(buffer_rivers['park_fra'] > 0) | (buffer_rivers['inpark_par'] == 1)]
             relevant_rivers['park'] = park_name
 
-            file_name = 'data/river/output/' + park_name + '.geojson'
+            park_file_name = ''.join(e for e in park_name if e.isalnum())
+            file_name = 'data/river/output/' + park_file_name + '.geojson'
+            
+
 
             relevant_rivers.to_file(file_name, driver='GeoJSON')
             print('Done')
